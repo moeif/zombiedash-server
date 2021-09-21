@@ -43,39 +43,55 @@ impl ClientablePlayer {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct MusicPlayInfo {
-    pub play_id: String,
-    pub player_id: String,
-    pub music_id: u32,
-    pub diff: u32,
-    pub max_score: u32,
-    pub created: DateTime<Utc>,
-    pub updated: DateTime<Utc>,
-}
+// #[derive(Serialize, Deserialize, Debug, Clone)]
+// pub struct MusicPlayInfo {
+//     pub play_id: String,
+//     pub player_id: String,
+//     pub music_id: u32,
+//     pub easy_max_score: u32,
+//     pub normal_max_score: u32,
+//     pub hard_max_score: u32,
+//     pub created: DateTime<Utc>,
+//     pub updated: DateTime<Utc>,
+// }
 
-impl MusicPlayInfo {
-    pub fn new(player_id: String, music_id: u32, diff: u32, max_score: u32) -> Self {
-        Self {
-            play_id: format!("{}_{}_{}", player_id, music_id, diff),
-            player_id,
-            music_id,
-            diff,
-            max_score,
-            created: Utc::now(),
-            updated: Utc::now(),
-        }
-    }
+// impl MusicPlayInfo {
+//     pub fn new(
+//         player_id: String,
+//         music_id: u32,
+//         easy_max_score: u32,
+//         normal_max_score: u32,
+//         hard_max_score: u32,
+//     ) -> Self {
+//         Self {
+//             play_id: format!("{}_{}_{}", player_id, music_id, diff),
+//             player_id,
+//             music_id,
+//             easy_max_score,
+//             normal_max_score,
+//             hard_max_score,
+//             created: Utc::now(),
+//             updated: Utc::now(),
+//         }
+//     }
 
-    pub fn from_clientable(cinfo: ClientableMusicPlayInfo) -> Self {
-        MusicPlayInfo::new(cinfo.player_id, cinfo.music_id, cinfo.diff, cinfo.max_score)
-    }
-}
+//     pub fn from_clientable(cinfo: ClientableMusicPlayInfo) -> Self {
+//         MusicPlayInfo::new(
+//             cinfo.player_id,
+//             cinfo.music_id,
+//             cinfo.easy_max_score,
+//             cinfo.normal_max_score,
+//             cinfo.hard_max_score,
+//         )
+//     }
+// }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ClientableMusicPlayInfo {
     pub player_id: String,
     pub music_id: u32,
-    pub diff: u32,
-    pub max_score: u32,
+    pub easy_max_score: u32,
+    pub normal_max_score: u32,
+    pub hard_max_score: u32,
+    pub total_score: u32,
 }

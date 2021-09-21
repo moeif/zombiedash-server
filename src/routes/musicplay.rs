@@ -3,7 +3,125 @@ use crate::data::connector::Connector;
 use crate::data::model;
 use mongodb::bson::doc;
 use redis;
+use redis::Connection;
 use rocket::serde::json::serde_json::json;
 use rocket::serde::json::Json;
 use rocket::State;
 use rocket::*;
+
+// 将某一首歌不同难度的最高分设置进Redis
+fn set_music_max_score_to_redis(
+    connection: &mut Connection,
+    player_id: &str,
+    music_id: u32,
+    diff: u32,
+    max_score: u32,
+) {
+    let collection_name = format!("zombiedash_{}_{}", music_id, diff);
+    let field_name = format!("{}", player_id);
+
+    let mut max_score = max_score;
+    if let Ok(result) = redis::cmd("ZSCORE")
+        .arg(&collection_name)
+        .arg(field_name.clone())
+        .query::<u32>(connection)
+    {
+        if result > max_score {
+            max_score = result;
+        }
+    }
+
+    if let Ok(_) = redis::cmd("ZADD")
+        .arg(&collection_name)
+        .arg(max_score)
+        .arg(field_name)
+        .query::<u32>(connection)
+    {
+        println!("数据插入Redis成功");
+    } else {
+        println!("ERR 数据插入Redis失败");
+    }
+}
+
+// 将用户整个游戏的所有最高分设置进Redis
+fn set_music_total_score_to_redis(connection: &mut Connection, player_id: &str, total_score: u32) {
+    let collection_name = "zombiedash_total_score";
+    let field_name = format!("{}", player_id);
+
+    let mut total_score = total_score;
+    if let Ok(result) = redis::cmd("ZSCORE")
+        .arg(&collection_name)
+        .arg(field_name.clone())
+        .query::<u32>(connection)
+    {
+        if result > total_score {
+            total_score = result;
+        }
+    }
+
+    if let Ok(_) = redis::cmd("ZADD")
+        .arg(&collection_name)
+        .arg(total_score)
+        .arg(field_name)
+        .query::<u32>(connection)
+    {
+        println!("总分插入Redis成功");
+    } else {
+        println!("ERR 总分插入Redis失败");
+    }
+}
+
+// 打玩一首歌，处理客户端向服务器提交数据
+#[post("/musicplayinfo", format = "json", data = "<minfo>")]
+pub async fn music_play_rt(
+    connector: &State<Connector>,
+    minfo: Json<model::ClientableMusicPlayInfo>,
+) -> ApiResponse {
+    if let Ok(mut redis_connection) = connector.redis.get_connection() {
+        // 简单难度存入排得榜
+        if minfo.easy_max_score > 0 {
+            set_music_max_score_to_redis(
+                &mut redis_connection,
+                &minfo.player_id,
+                minfo.music_id,
+                0,
+                minfo.easy_max_score,
+            );
+        }
+        // 普通难度存入排行榜
+        if minfo.normal_max_score > 0 {
+            set_music_max_score_to_redis(
+                &mut redis_connection,
+                &minfo.player_id,
+                minfo.music_id,
+                1,
+                minfo.normal_max_score,
+            );
+        }
+
+        // 困难难度存入排行榜
+        if minfo.hard_max_score > 0 {
+            set_music_max_score_to_redis(
+                &mut redis_connection,
+                &minfo.player_id,
+                minfo.music_id,
+                2,
+                minfo.hard_max_score,
+            );
+        }
+
+        if minfo.total_score > 0 {
+            set_music_total_score_to_redis(
+                &mut redis_connection,
+                &minfo.player_id,
+                minfo.total_score,
+            );
+        }
+
+        return ApiResponse::empty_ok();
+    }
+
+    return ApiResponse::empty_ok();
+}
+
+// 获取排行榜
