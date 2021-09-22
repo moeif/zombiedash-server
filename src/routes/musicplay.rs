@@ -121,7 +121,75 @@ pub async fn music_play_rt(
         return ApiResponse::empty_ok();
     }
 
-    return ApiResponse::empty_ok();
+    return ApiResponse::internal_err();
 }
 
 // 获取排行榜
+#[post("/ranklist", format = "json", data = "<rankinfo>")]
+pub async fn rank_list_rt(
+    connector: &State<Connector>,
+    rankinfo: Json<model::ClientableRankInfo>,
+) -> ApiResponse {
+    if let Ok(mut redis_connection) = connector.redis.get_connection() {
+        let collection_name = if rankinfo.music_id == 0 {
+            "zombiedash_total_score".to_string()
+        } else {
+            // 获取某一首歌某个难度的排行榜
+            format!("zombiedash_{}_{}", rankinfo.music_id, rankinfo.diff)
+        };
+
+        // 获取排行榜数据
+        if let Ok(result) = redis::cmd("ZREVRANGE")
+            .arg(collection_name.clone())
+            .arg(0)
+            .arg(99)
+            .arg("WITHSCORES")
+            .query::<Vec<(String, String)>>(&mut redis_connection)
+        {
+            println!("{:?}", result);
+            let mut rank_list: Vec<model::RankPlayer> = Vec::new();
+            for item in result.iter() {
+                let player_id = item.0.clone();
+                let score = if let Ok(x) = item.1.parse::<u32>() {
+                    x
+                } else {
+                    0
+                };
+                let player_name = if let Some(name) =
+                    super::get_player_name_from_redis(&mut redis_connection, &player_id)
+                {
+                    name
+                } else {
+                    "Unknow".to_string()
+                };
+                let rank_player = model::RankPlayer {
+                    player_id,
+                    name: player_name,
+                    score,
+                };
+                rank_list.push(rank_player);
+            }
+
+            let my_rank = if let Ok(index) = redis::cmd("ZREVRANK")
+                .arg(collection_name)
+                .arg(rankinfo.player_id.clone())
+                .query::<u32>(&mut redis_connection)
+            {
+                index + 1
+            } else {
+                0
+            };
+
+            let rrl = model::ResponseRankList {
+                rank_list,
+                music_id: rankinfo.music_id,
+                diff: rankinfo.diff,
+                my_rank,
+            };
+
+            return ApiResponse::ok(json!(rrl));
+        }
+    }
+
+    return ApiResponse::internal_err();
+}

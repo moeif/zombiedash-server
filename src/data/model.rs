@@ -95,3 +95,31 @@ pub struct ClientableMusicPlayInfo {
     pub hard_max_score: u32,
     pub total_score: u32,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct ClientableRankInfo {
+    pub player_id: String,
+    pub music_id: u32, // 如果music_id为0，则返回总榜
+    pub diff: u32,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct RankPlayer {
+    pub player_id: String,
+    pub name: String,
+    pub score: u32,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct ResponseRankList {
+    pub rank_list: Vec<RankPlayer>,
+    pub music_id: u32,
+    pub diff: u32,
+    pub my_rank: u32,
+}
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct ClientableWorship {
+    pub src_player_id: String,
+    pub dst_player_id: String,
+}

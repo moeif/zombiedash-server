@@ -28,6 +28,10 @@ pub async fn rocket_builder() -> Option<Rocket<Build>> {
                         routes::player::new_player_rt,
                         routes::player::info_player_rt,
                         routes::musicplay::music_play_rt,
+                        routes::musicplay::rank_list_rt,
+                        routes::worship::get_worship_rt,
+                        routes::worship::post_worship_rt,
+                        routes::worship::get_worship_names_rt,
                     ],
                 )
                 .manage(connector),

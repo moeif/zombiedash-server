@@ -2,7 +2,7 @@ use super::common::ApiResponse;
 use crate::data::connector::Connector;
 use crate::data::model;
 use mongodb::bson::doc;
-use redis;
+use redis::{self, Connection};
 use rocket::serde::json::serde_json::json;
 use rocket::serde::json::Json;
 use rocket::State;
@@ -15,11 +15,26 @@ fn set_player_to_redis(player_id: String, name: String, redis_client: &redis::Cl
     if let Ok(mut redis_connection) = redis_client.get_connection() {
         if let Ok(_) = redis::cmd("HSET")
             .arg(REDIS_COLLECTION)
-            .arg(player_id)
-            .arg(name)
+            .arg(player_id.clone())
+            .arg(name.clone())
             .query::<u32>(&mut redis_connection)
-        {}
+        {
+            println!("数据存入Redis, playerid: {}, name: {}", player_id, name);
+        }
+    } else {
+        println!("获取Redis连接失败!");
     }
+}
+
+pub fn get_player_name_from_redis(connection: &mut Connection, player_id: &str) -> Option<String> {
+    if let Ok(result) = redis::cmd("HGET")
+        .arg(REDIS_COLLECTION)
+        .arg(player_id.clone())
+        .query::<String>(connection)
+    {
+        return Some(result);
+    }
+    return None;
 }
 
 #[get("/sumplayers")]
@@ -63,6 +78,12 @@ pub async fn new_player_rt(
         }
     };
 
+    set_player_to_redis(
+        player.player_id.clone(),
+        player.name.clone(),
+        &connector.redis,
+    );
+
     let player_coll = connector
         .mongodb
         .collection::<model::Player>(MONGODB_COLLECTION);
@@ -75,15 +96,11 @@ pub async fn new_player_rt(
         } else {
             let new_player = model::Player::from_clientable(player.clone());
             if let Ok(_) = player_coll.insert_one(new_player, None).await {
-                set_player_to_redis(
-                    player.player_id.clone(),
-                    player.name.clone(),
-                    &connector.redis,
-                );
-
                 return ApiResponse::empty_ok();
             }
         }
+    } else {
+        println!("从Mongodb中获查找用户 {} 失败!", player.player_id);
     }
 
     return ApiResponse::internal_err();
