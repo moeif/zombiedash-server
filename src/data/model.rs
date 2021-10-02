@@ -99,6 +99,7 @@ pub struct ClientableMusicPlayInfo {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct ClientableRankInfo {
     pub player_id: String,
+    pub name: String,
     pub music_id: u32, // 如果music_id为0，则返回总榜
     pub diff: u32,
 }
@@ -117,9 +118,8 @@ pub struct ResponseRankList {
     pub rank_list: Vec<RankPlayer>,
     pub music_id: u32,
     pub diff: u32,
-    pub my_rank: u32,
-    pub my_num_of_battles: u32,
-    pub my_num_of_worship: u32,
+    pub my_data: RankPlayer,
+    pub my_rank: i32, // 如果是-1，表示没有数据
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]

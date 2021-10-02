@@ -1,6 +1,6 @@
 use super::common::ApiResponse;
 use crate::data::connector::Connector;
-use crate::data::model;
+use crate::data::model::{self, RankPlayer};
 use mongodb::bson::doc;
 use redis;
 use redis::Connection;
@@ -216,7 +216,7 @@ pub async fn rank_list_rt(
 
         // 获取排行榜数据
         if let Ok(result) = redis::cmd("ZREVRANGE")
-            .arg(collection_name.clone())
+            .arg(&collection_name)
             .arg(0)
             .arg(99)
             .arg("WITHSCORES")
@@ -264,11 +264,21 @@ pub async fn rank_list_rt(
 
             // 取出我的排名
             let my_rank = if let Ok(index) = redis::cmd("ZREVRANK")
-                .arg(collection_name)
-                .arg(rankinfo.player_id.clone())
-                .query::<u32>(&mut redis_connection)
+                .arg(&collection_name)
+                .arg(&rankinfo.player_id)
+                .query::<i32>(&mut redis_connection)
             {
                 index + 1
+            } else {
+                -1
+            };
+
+            let my_score = if let Ok(score) = redis::cmd("ZSCORE")
+                .arg(&collection_name)
+                .arg(&rankinfo.player_id)
+                .query::<u32>(&mut redis_connection)
+            {
+                score
             } else {
                 0
             };
@@ -284,13 +294,20 @@ pub async fn rank_list_rt(
             // 取出我被膜拜的次数
             let my_num_of_worship = super::get_worship(&mut redis_connection, &rankinfo.player_id);
 
+            let my_data = RankPlayer {
+                player_id: rankinfo.player_id.clone(),
+                name: rankinfo.name.clone(),
+                score: my_score,
+                num_of_battles: my_num_of_battles,
+                num_of_worship: my_num_of_worship,
+            };
+
             let rrl = model::ResponseRankList {
                 rank_list,
                 music_id: rankinfo.music_id,
                 diff: rankinfo.diff,
+                my_data,
                 my_rank,
-                my_num_of_battles,
-                my_num_of_worship,
             };
 
             return ApiResponse::ok(json!(rrl));

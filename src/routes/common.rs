@@ -26,17 +26,17 @@ impl ApiResponse {
         }
     }
 
-    pub fn err(message: JsonValue) -> Self {
-        ApiResponse {
-            status: Status::InternalServerError,
-            message: message,
-        }
-    }
+    // pub fn err(message: JsonValue) -> Self {
+    //     ApiResponse {
+    //         status: Status::InternalServerError,
+    //         message: message,
+    //     }
+    // }
 
     pub fn internal_err() -> Self {
         ApiResponse {
             status: Status::InternalServerError,
-            message: json!("Internal server error"),
+            message: json!({"code": -1}),
         }
     }
 }
