@@ -38,7 +38,7 @@ fn add_worship(connection: &mut Connection, player_id: &str) {
     }
 }
 
-fn get_worship(connection: &mut Connection, player_id: &str) -> u32 {
+pub fn get_worship(connection: &mut Connection, player_id: &str) -> u32 {
     let field_name = format!("{}", player_id);
     if let Ok(result) = redis::cmd("HGET")
         .arg(REDIS_COLLECTION)
@@ -145,11 +145,13 @@ pub async fn post_worship_rt(
 ) -> ApiResponse {
     if let Ok(mut redis_connection) = connector.redis.get_connection() {
         add_worship(&mut redis_connection, &worshipinfo.dst_player_id);
-        add_worship_name(
-            &mut redis_connection,
-            &worshipinfo.dst_player_id,
-            &worshipinfo.src_player_id,
-        );
+
+        // 考虑了一下，不用保存谁膜拜了我，不重要
+        // add_worship_name(
+        //     &mut redis_connection,
+        //     &worshipinfo.dst_player_id,
+        //     &worshipinfo.src_player_id,
+        // );
         return ApiResponse::empty_ok();
     }
     return ApiResponse::internal_err();

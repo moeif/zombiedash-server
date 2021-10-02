@@ -93,7 +93,7 @@ pub struct ClientableMusicPlayInfo {
     pub easy_max_score: u32,
     pub normal_max_score: u32,
     pub hard_max_score: u32,
-    pub total_score: u32,
+    pub total_avg_score: u32,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -108,6 +108,8 @@ pub struct RankPlayer {
     pub player_id: String,
     pub name: String,
     pub score: u32,
+    pub num_of_battles: u32, // 战斗次数，总的或者当前歌曲及难度的
+    pub num_of_worship: u32, // 被膜拜次数
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -116,6 +118,8 @@ pub struct ResponseRankList {
     pub music_id: u32,
     pub diff: u32,
     pub my_rank: u32,
+    pub my_num_of_battles: u32,
+    pub my_num_of_worship: u32,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
