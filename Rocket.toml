@@ -1,2 +1,26 @@
 [default]
 address = "0.0.0.0"
+
+[default.tls]
+certs = "tsl/txvps-moeif-com-1006224627_chain.crt"
+key = "tsl/txvps-moeif-com-1006224627_key.key"
+
+# [default.tls.mutual]
+# ca_certs = "tsl/ca_cert.pem"
+# mandatory = false
+
+# [rsa_sha256.tls]
+# certs = "tsl/rsa_sha256_cert.pem"
+# key = "tsl/rsa_sha256_key.pem"
+
+# [ecdsa_nistp256_sha256.tls]
+# certs = "tsl/ecdsa_nistp256_sha256_cert.pem"
+# key = "tsl/ecdsa_nistp256_sha256_key_pkcs8.pem"
+
+# [ecdsa_nistp384_sha384.tls]
+# certs = "tsl/ecdsa_nistp384_sha384_cert.pem"
+# key = "tsl/ecdsa_nistp384_sha384_key_pkcs8.pem"
+
+# [ed25519.tls]
+# certs = "tsl/ed25519_cert.pem"
+# key = "tsl/ed25519_key.pem"

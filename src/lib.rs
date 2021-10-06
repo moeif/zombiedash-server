@@ -1,4 +1,5 @@
 #![feature(proc_macro_hygiene, decl_macro)]
+use rocket::fs::FileServer;
 use rocket::*;
 use std::sync::{Arc, Mutex};
 pub mod data;
@@ -34,6 +35,7 @@ pub async fn rocket_builder() -> Option<Rocket<Build>> {
                         routes::worship::get_worship_names_rt,
                     ],
                 )
+                .mount("/", FileServer::from("static/"))
                 .manage(connector),
         )
     } else {

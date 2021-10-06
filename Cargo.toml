@@ -10,7 +10,7 @@ chrono = { version = "0.4.19", features = ["serde"] }
 mongodb = "2.0.0"
 dotenv = "0.15.0"
 rand = "0.8.4"
-rocket = {version = "0.5.0-rc.1", features = ["json", "uuid"] }
+rocket = { version = "0.5.0-rc.1", features = ["json", "uuid", "tls"] }
 rust-argon2 = "0.8.3"
 serde = "1.0.130"
 redis = "0.21.2"
