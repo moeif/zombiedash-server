@@ -29,12 +29,12 @@ fn increase_value_of_set(connection: &mut Connection, collection_name: &str, fie
         .arg(new_value)
         .query::<u32>(connection)
     {
-        println!(
+        info!(
             "值刷新成功: {} - {}, {} -> {}",
             collection_name, field_name, prev_value, new_value
         );
     } else {
-        println!(
+        info!(
             "ERROR, 值刷新失败: {} - {}, {} -> {}",
             collection_name, field_name, prev_value, new_value
         );
@@ -99,9 +99,9 @@ fn set_music_max_score_to_redis(
         .arg(field_name)
         .query::<u32>(connection)
     {
-        println!("数据插入Redis成功");
+        info!("数据插入Redis成功");
     } else {
-        println!("ERR 数据插入Redis失败");
+        info!("ERR 数据插入Redis失败");
     }
 }
 
@@ -127,9 +127,9 @@ fn set_music_total_score_to_redis(connection: &mut Connection, player_id: &str, 
         .arg(field_name)
         .query::<u32>(connection)
     {
-        println!("总分插入Redis成功");
+        info!("总分插入Redis成功");
     } else {
-        println!("ERR 总分插入Redis失败");
+        info!("ERR 总分插入Redis失败");
     }
 }
 
@@ -222,7 +222,7 @@ pub async fn rank_list_rt(
             .arg("WITHSCORES")
             .query::<Vec<(String, String)>>(&mut redis_connection)
         {
-            println!("{:?}", result);
+            info!("{:?}", result);
             let mut rank_list: Vec<model::RankPlayer> = Vec::new();
             for item in result.iter() {
                 let player_id = item.0.clone();

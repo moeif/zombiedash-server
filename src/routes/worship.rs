@@ -32,9 +32,9 @@ fn add_worship(connection: &mut Connection, player_id: &str) {
         .arg(worship)
         .query::<u32>(connection)
     {
-        println!("膜拜新增成功！")
+        info!("膜拜新增成功！")
     } else {
-        println!("膜拜新增失败！");
+        info!("膜拜新增失败！");
     }
 }
 
@@ -84,10 +84,10 @@ fn add_worship_name(connection: &mut Connection, player_id: &str, src_player_id:
                 .arg(json_str)
                 .query::<u32>(connection)
             {
-                println!("添加新的膜拜名单成功!");
+                info!("添加新的膜拜名单成功!");
             }
         } else {
-            println!("添加新的膜拜姓名序列化失败！");
+            info!("添加新的膜拜姓名序列化失败！");
         }
     }
 }
@@ -120,7 +120,7 @@ fn get_worship_names(connection: &mut Connection, player_id: &str) -> Vec<String
         .arg(field_name.clone())
         .query::<u32>(connection)
     {
-        println!("膜拜名单删除成功");
+        info!("膜拜名单删除成功");
     }
 
     return names;
@@ -132,7 +132,7 @@ pub async fn get_worship_rt(connector: &State<Connector>, player_id: String) -> 
         let worship_num = get_worship(&mut redis_connection, &player_id);
         return ApiResponse::ok(json!({ "worship": worship_num }));
     } else {
-        println!("Get Worship Error!");
+        info!("Get Worship Error!");
     }
 
     return ApiResponse::internal_err();
