@@ -29,3 +29,273 @@
 2021-10-06 12:44:34 - WARN - [rocket::launch] - 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://0.0.0.0:8000[0m
 2021-10-06 12:44:54 - WARN - [rocket::server] - Received SIGINT. Requesting shutdown.
 2021-10-06 12:44:54 - INFO - [rocket::server] - Received shutdown request. Waiting for pending I/O...
+2021-10-07 12:31:21 - WARN - [rocket::launch] - 🔧 Configured for debug.
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - address: [1;49;39m127.0.0.1[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - port: [1;49;39m9000[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - workers: [1;49;39m8[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - ident: [1;49;39mRocket[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - keep-alive: [1;49;39m5s[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - tls: [1;49;39mdisabled[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - temp dir: [1;49;39m/var/folders/0z/lksm4v814dg6f906s1q4jtp40000gn/T/[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - log level: [1;49;39mnormal[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - cli colors: [1;49;39mtrue[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch] - 🛰  [35mRoutes[0m:
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mping_fn[0m[36m)[0m [32mGET[0m [34m/ping[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mFileServer: static//[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;49;39m10[0m]
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mnew_player_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/player[0m [33mapplication/json[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mpost_worship_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/worship[0m [33mapplication/json[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37msum_players_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/sumplayers[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worship/<player_id>[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_names_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worshipnames/<player_id>[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch] - 📡 [35mFairings[0m:
+2021-10-07 12:31:21 - WARN - [rocket::launch_] - [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+2021-10-07 12:31:21 - INFO - [rocket::shield::shield] - 🛡️ [35mShield[0m:
+2021-10-07 12:31:21 - INFO - [_] - X-Frame-Options: [49;39mSAMEORIGIN[0m
+2021-10-07 12:31:21 - INFO - [_] - Permissions-Policy: [49;39minterest-cohort=()[0m
+2021-10-07 12:31:21 - INFO - [_] - X-Content-Type-Options: [49;39mnosniff[0m
+2021-10-07 12:31:21 - WARN - [rocket::launch] - 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://127.0.0.1:9000[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch] - 🔧 Configured for debug.
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - address: [1;49;39m127.0.0.1[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - port: [1;49;39m9000[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - workers: [1;49;39m8[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - ident: [1;49;39mRocket[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - keep-alive: [1;49;39m5s[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - tls: [1;49;39mdisabled[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - temp dir: [1;49;39m/var/folders/0z/lksm4v814dg6f906s1q4jtp40000gn/T/[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - log level: [1;49;39mnormal[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - cli colors: [1;49;39mtrue[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch] - 🛰  [35mRoutes[0m:
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mping_fn[0m[36m)[0m [32mGET[0m [34m/ping[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mFileServer: static//[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;49;39m10[0m]
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mnew_player_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/player[0m [33mapplication/json[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mpost_worship_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/worship[0m [33mapplication/json[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37msum_players_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/sumplayers[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worship/<player_id>[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_names_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worshipnames/<player_id>[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch] - 📡 [35mFairings[0m:
+2021-10-07 15:16:21 - WARN - [rocket::launch_] - [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+2021-10-07 15:16:21 - INFO - [rocket::shield::shield] - 🛡️ [35mShield[0m:
+2021-10-07 15:16:21 - INFO - [_] - X-Frame-Options: [49;39mSAMEORIGIN[0m
+2021-10-07 15:16:21 - INFO - [_] - Permissions-Policy: [49;39minterest-cohort=()[0m
+2021-10-07 15:16:21 - INFO - [_] - X-Content-Type-Options: [49;39mnosniff[0m
+2021-10-07 15:16:21 - WARN - [rocket::launch] - 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://127.0.0.1:9000[0m
+2021-10-07 15:17:39 - INFO - [rocket::server] - [32mGET[0m [34m/api/player/111[0m [33mtext[0m[33m/[0m[33mhtml[0m:
+2021-10-07 15:17:39 - INFO - [_] - Matched: [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 15:17:39 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 15:17:39 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 15:17:39 - INFO - [rocket::server] - [32mGET[0m [34m/favicon.ico[0m [33mimage[0m[33m/[0m[33mavif[0m:
+2021-10-07 15:17:39 - INFO - [_] - Matched: [36m([0m[37mFileServer: static//[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;49;39m10[0m]
+2021-10-07 15:17:39 - WARN - [_] - Response was `None`.
+2021-10-07 15:17:39 - INFO - [_] - [1;49;39mOutcome:[0m [49;33mForward[0m
+2021-10-07 15:17:39 - ERROR - [_] - No matching routes for [32mGET[0m [34m/favicon.ico[0m [33mimage[0m[33m/[0m[33mavif[0m.
+2021-10-07 15:17:39 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 15:17:39 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 15:17:41 - INFO - [rocket::server] - [32mGET[0m [34m/api/player/111[0m [33mtext[0m[33m/[0m[33mhtml[0m:
+2021-10-07 15:17:41 - INFO - [_] - Matched: [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 15:17:41 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 15:17:41 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 15:23:22 - WARN - [rocket::server] - Received SIGINT. Requesting shutdown.
+2021-10-07 15:23:22 - INFO - [rocket::server] - Received shutdown request. Waiting for pending I/O...
+2021-10-07 20:14:34 - WARN - [rocket::launch] - 🔧 Configured for debug.
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - address: [1;49;39m127.0.0.1[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - port: [1;49;39m9000[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - workers: [1;49;39m8[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - ident: [1;49;39mRocket[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - keep-alive: [1;49;39m5s[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - tls: [1;49;39mdisabled[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - temp dir: [1;49;39m/var/folders/0z/lksm4v814dg6f906s1q4jtp40000gn/T/[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - log level: [1;49;39mnormal[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - cli colors: [1;49;39mtrue[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch] - 🛰  [35mRoutes[0m:
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mping_fn[0m[36m)[0m [32mGET[0m [34m/ping[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mFileServer: static//[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;49;39m10[0m]
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mnew_player_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/player[0m [33mapplication/json[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mpost_worship_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/worship[0m [33mapplication/json[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37msum_players_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/sumplayers[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worship/<player_id>[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_names_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worshipnames/<player_id>[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch] - 📡 [35mFairings[0m:
+2021-10-07 20:14:34 - WARN - [rocket::launch_] - [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+2021-10-07 20:14:34 - INFO - [rocket::shield::shield] - 🛡️ [35mShield[0m:
+2021-10-07 20:14:34 - INFO - [_] - X-Content-Type-Options: [49;39mnosniff[0m
+2021-10-07 20:14:34 - INFO - [_] - Permissions-Policy: [49;39minterest-cohort=()[0m
+2021-10-07 20:14:34 - INFO - [_] - X-Frame-Options: [49;39mSAMEORIGIN[0m
+2021-10-07 20:14:34 - WARN - [rocket::launch] - 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://127.0.0.1:9000[0m
+2021-10-07 20:14:59 - INFO - [rocket::server] - [32mGET[0m [34m/api/player/4BF49C0E-903A-584C-BF50-A77E49F024CB[0m:
+2021-10-07 20:14:59 - INFO - [_] - Matched: [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 20:14:59 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:14:59 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:16:01 - INFO - [rocket::server] - [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:16:01 - ERROR - [_] - No matching routes for [32mPUT[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m.
+2021-10-07 20:16:01 - WARN - [_] - No [1;34m404[0m catcher registered. Using Rocket default.
+2021-10-07 20:16:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:18:53 - WARN - [rocket::server] - Received SIGINT. Requesting shutdown.
+2021-10-07 20:18:53 - INFO - [rocket::server] - Received shutdown request. Waiting for pending I/O...
+2021-10-07 20:18:54 - WARN - [rocket::launch] - 🔧 Configured for debug.
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - address: [1;49;39m127.0.0.1[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - port: [1;49;39m9000[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - workers: [1;49;39m8[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - ident: [1;49;39mRocket[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - keep-alive: [1;49;39m5s[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - tls: [1;49;39mdisabled[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - temp dir: [1;49;39m/var/folders/0z/lksm4v814dg6f906s1q4jtp40000gn/T/[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - log level: [1;49;39mnormal[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - cli colors: [1;49;39mtrue[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch] - 🛰  [35mRoutes[0m:
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mping_fn[0m[36m)[0m [32mGET[0m [34m/ping[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mFileServer: static//[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;49;39m10[0m]
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mnew_player_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/player[0m [33mapplication/json[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mpost_worship_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/worship[0m [33mapplication/json[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37msum_players_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/sumplayers[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worship/<player_id>[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_names_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worshipnames/<player_id>[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch] - 📡 [35mFairings[0m:
+2021-10-07 20:18:54 - WARN - [rocket::launch_] - [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+2021-10-07 20:18:54 - INFO - [rocket::shield::shield] - 🛡️ [35mShield[0m:
+2021-10-07 20:18:54 - INFO - [_] - X-Content-Type-Options: [49;39mnosniff[0m
+2021-10-07 20:18:54 - INFO - [_] - X-Frame-Options: [49;39mSAMEORIGIN[0m
+2021-10-07 20:18:54 - INFO - [_] - Permissions-Policy: [49;39minterest-cohort=()[0m
+2021-10-07 20:18:54 - WARN - [rocket::launch] - 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://127.0.0.1:9000[0m
+2021-10-07 20:19:04 - INFO - [rocket::server] - [32mGET[0m [34m/api/player/4BF49C0E-903A-584C-BF50-A77E49F024CB[0m:
+2021-10-07 20:19:04 - INFO - [_] - Matched: [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 20:19:04 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:19:04 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:19:13 - INFO - [rocket::server] - [32mPOST[0m [34m/api/player[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:19:13 - INFO - [_] - Matched: [36m([0m[37mnew_player_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/player[0m [33mapplication/json[0m
+2021-10-07 20:19:13 - INFO - [zombiedash_server::routes::player] - 数据存入Redis, playerid: 4BF49C0E-903A-584C-BF50-A77E49F024CB, name: 9991
+2021-10-07 20:19:13 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:19:13 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:24:01 - INFO - [rocket::server] - [32mPOST[0m [34m/api/musicplayinfo[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:24:01 - INFO - [_] - Matched: [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 20:24:01 - INFO - [zombiedash_server::routes::musicplay] - ERR 数据插入Redis失败
+2021-10-07 20:24:01 - INFO - [zombiedash_server::routes::musicplay] - ERROR, 值刷新失败: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB, 0 -> 1
+2021-10-07 20:24:01 - INFO - [zombiedash_server::routes::musicplay] - ERROR, 值刷新失败: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB_1001_0, 0 -> 1
+2021-10-07 20:24:01 - INFO - [zombiedash_server::routes::musicplay] - ERR 总分插入Redis失败
+2021-10-07 20:24:01 - INFO - [zombiedash_server::routes::musicplay] - ERROR, 值刷新失败: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB, 0 -> 1
+2021-10-07 20:24:01 - INFO - [zombiedash_server::routes::musicplay] - ERROR, 值刷新失败: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB_0_0, 0 -> 1
+2021-10-07 20:24:01 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:24:01 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:30:39 - INFO - [rocket::server] - [32mPOST[0m [34m/api/ranklist[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:30:39 - INFO - [_] - Matched: [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 20:30:39 - WARN - [_] - `Json < model :: ClientableRankInfo >` data guard failed: Parse("{\"player_id\":\"4BF49C0E-903A-584C-BF50-A77E49F024CB\",\"music_id\":0,\"diff\":0}", Error("missing field `name`", line: 1, column: 74)).
+2021-10-07 20:30:39 - INFO - [_] - [1;49;39mOutcome:[0m [49;31mFailure[0m
+2021-10-07 20:30:39 - WARN - [_] - No [1;34m422[0m catcher registered. Using Rocket default.
+2021-10-07 20:30:39 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:36:00 - WARN - [rocket::server] - Received SIGINT. Requesting shutdown.
+2021-10-07 20:36:00 - INFO - [rocket::server] - Received shutdown request. Waiting for pending I/O...
+2021-10-07 20:36:02 - WARN - [rocket::launch] - 🔧 Configured for debug.
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - address: [1;49;39m127.0.0.1[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - port: [1;49;39m9000[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - workers: [1;49;39m8[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - ident: [1;49;39mRocket[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - keep-alive: [1;49;39m5s[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - tls: [1;49;39mdisabled[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - temp dir: [1;49;39m/var/folders/0z/lksm4v814dg6f906s1q4jtp40000gn/T/[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - log level: [1;49;39mnormal[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - cli colors: [1;49;39mtrue[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch] - 🛰  [35mRoutes[0m:
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mping_fn[0m[36m)[0m [32mGET[0m [34m/ping[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mFileServer: static//[0m[36m)[0m [32mGET[0m [34m/<path..>[0m [[1;49;39m10[0m]
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mnew_player_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/player[0m [33mapplication/json[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mpost_worship_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/worship[0m [33mapplication/json[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37msum_players_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/sumplayers[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37minfo_player_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/player/<player_id>[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worship/<player_id>[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [36m([0m[37mget_worship_names_rt[0m[36m)[0m [32mGET[0m [4;34m/api[0m[34m/worshipnames/<player_id>[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch] - 📡 [35mFairings[0m:
+2021-10-07 20:36:02 - WARN - [rocket::launch_] - [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)
+2021-10-07 20:36:02 - INFO - [rocket::shield::shield] - 🛡️ [35mShield[0m:
+2021-10-07 20:36:02 - INFO - [_] - X-Content-Type-Options: [49;39mnosniff[0m
+2021-10-07 20:36:02 - INFO - [_] - X-Frame-Options: [49;39mSAMEORIGIN[0m
+2021-10-07 20:36:02 - INFO - [_] - Permissions-Policy: [49;39minterest-cohort=()[0m
+2021-10-07 20:36:02 - WARN - [rocket::launch] - 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://127.0.0.1:9000[0m
+2021-10-07 20:39:38 - INFO - [rocket::server] - [32mPOST[0m [34m/api/musicplayinfo[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:39:38 - INFO - [_] - Matched: [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 20:39:38 - INFO - [zombiedash_server::routes::musicplay] - 数据插入Redis成功
+2021-10-07 20:39:38 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB, 0 -> 1
+2021-10-07 20:39:38 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB_1002_0, 0 -> 1
+2021-10-07 20:39:38 - INFO - [zombiedash_server::routes::musicplay] - 总分插入Redis成功
+2021-10-07 20:39:38 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB, 1 -> 2
+2021-10-07 20:39:38 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB_0_0, 0 -> 1
+2021-10-07 20:39:38 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:39:38 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:40:08 - INFO - [rocket::server] - [32mPOST[0m [34m/api/ranklist[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:40:08 - INFO - [_] - Matched: [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 20:40:08 - INFO - [zombiedash_server::routes::musicplay] - [("4BF49C0E-903A-584C-BF50-A77E49F024CB", "599940")]
+2021-10-07 20:40:08 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:40:08 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 20:41:12 - INFO - [rocket::server] - [32mPOST[0m [34m/api/ranklist[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 20:41:12 - INFO - [_] - Matched: [36m([0m[37mrank_list_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/ranklist[0m [33mapplication/json[0m
+2021-10-07 20:41:12 - INFO - [zombiedash_server::routes::musicplay] - [("4BF49C0E-903A-584C-BF50-A77E49F024CB", "599940")]
+2021-10-07 20:41:12 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 20:41:12 - INFO - [_] - [32mResponse succeeded.[0m
+2021-10-07 21:23:07 - INFO - [rocket::server] - [32mPOST[0m [34m/api/musicplayinfo[0m [33mapplication[0m[33m/[0m[33mjson[0m:
+2021-10-07 21:23:07 - INFO - [_] - Matched: [36m([0m[37mmusic_play_rt[0m[36m)[0m [32mPOST[0m [4;34m/api[0m[34m/musicplayinfo[0m [33mapplication/json[0m
+2021-10-07 21:23:08 - INFO - [zombiedash_server::routes::musicplay] - 数据插入Redis成功
+2021-10-07 21:23:08 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB, 2 -> 3
+2021-10-07 21:23:08 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB_1001_0, 0 -> 1
+2021-10-07 21:23:08 - INFO - [zombiedash_server::routes::musicplay] - 总分插入Redis成功
+2021-10-07 21:23:08 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB, 3 -> 4
+2021-10-07 21:23:08 - INFO - [zombiedash_server::routes::musicplay] - 值刷新成功: zombiedash_num_of_battles - 4BF49C0E-903A-584C-BF50-A77E49F024CB_0_0, 1 -> 2
+2021-10-07 21:23:08 - INFO - [_] - [1;49;39mOutcome:[0m [49;32mSuccess[0m
+2021-10-07 21:23:08 - INFO - [_] - [32mResponse succeeded.[0m

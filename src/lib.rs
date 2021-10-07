@@ -4,6 +4,7 @@ use rocket::*;
 use std::sync::{Arc, Mutex};
 pub mod data;
 mod routes;
+use rocket::shield::Shield;
 
 pub struct Users {
     pub db: Arc<Mutex<Vec<data::db::User>>>,
