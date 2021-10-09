@@ -19,10 +19,10 @@ fn set_player_to_redis(player_id: String, name: String, redis_client: &redis::Cl
             .arg(name.clone())
             .query::<u32>(&mut redis_connection)
         {
-            info!("数据存入Redis, playerid: {}, name: {}", player_id, name);
+            info!("用户数据存入Redis, playerid: {}, name: {}", player_id, name);
         }
     } else {
-        info!("获取Redis连接失败!");
+        info!("用户数据存入Redis失败，获取Redis连接失败!");
     }
 }
 
@@ -68,11 +68,14 @@ pub async fn new_player_rt(
     if let Ok(mut redis_connection) = connector.redis.get_connection() {
         if let Ok(result) = redis::cmd("HEXISTS")
             .arg(REDIS_COLLECTION)
-            .arg(player.player_id.clone())
+            .arg(&player.player_id)
             .query::<u32>(&mut redis_connection)
         {
             if result > 0 {
-                info!("从Redis中获取用户数据成功，当前用户已存在");
+                info!(
+                    "从Redis中获取用户数据成功，当前用户已存在, player_id: {}",
+                    &player.player_id
+                );
                 return ApiResponse::empty_ok();
             }
         }
@@ -115,7 +118,7 @@ pub async fn info_player_rt(connector: &State<Connector>, player_id: String) -> 
             .query::<String>(&mut redis_connection)
         {
             let clientable_player = model::ClientablePlayer::new(player_id.clone(), result);
-            info!("从Redis中获取用户信息成功");
+            info!("从Redis中查询用户信息成功, player_id: {}", player_id);
             return ApiResponse::ok(json!(clientable_player));
         }
     }

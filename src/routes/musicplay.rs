@@ -30,12 +30,12 @@ fn increase_value_of_set(connection: &mut Connection, collection_name: &str, fie
         .query::<u32>(connection)
     {
         info!(
-            "值刷新成功: {} - {}, {} -> {}",
+            "Redis 自增值修改成功: {} - {}, {} -> {}",
             collection_name, field_name, prev_value, new_value
         );
     } else {
         info!(
-            "ERROR, 值刷新失败: {} - {}, {} -> {}",
+            "ERROR, 自增值修改失败: {} - {}, {} -> {}",
             collection_name, field_name, prev_value, new_value
         );
     }
@@ -85,7 +85,7 @@ fn set_music_max_score_to_redis(
     let mut max_score = max_score;
     if let Ok(result) = redis::cmd("ZSCORE")
         .arg(&collection_name)
-        .arg(field_name.clone())
+        .arg(&field_name)
         .query::<u32>(connection)
     {
         if result > max_score {
@@ -96,12 +96,18 @@ fn set_music_max_score_to_redis(
     if let Ok(_) = redis::cmd("ZADD")
         .arg(&collection_name)
         .arg(max_score)
-        .arg(field_name)
+        .arg(&field_name)
         .query::<u32>(connection)
     {
-        info!("数据插入Redis成功");
+        info!(
+            "MaxScore 数据插入Redis成功, collection: {}, max_score: {}, field_name: {}",
+            &collection_name, max_score, field_name
+        );
     } else {
-        info!("ERR 数据插入Redis失败");
+        info!(
+            "ERR MaxScore 数据插入Redis失败, collection: {}, max_score: {}, field_name: {}",
+            &collection_name, max_score, field_name
+        );
     }
 }
 
@@ -113,7 +119,7 @@ fn set_music_total_score_to_redis(connection: &mut Connection, player_id: &str, 
     let mut total_score = total_score;
     if let Ok(result) = redis::cmd("ZSCORE")
         .arg(&collection_name)
-        .arg(field_name.clone())
+        .arg(&field_name)
         .query::<u32>(connection)
     {
         if result > total_score {
@@ -124,12 +130,18 @@ fn set_music_total_score_to_redis(connection: &mut Connection, player_id: &str, 
     if let Ok(_) = redis::cmd("ZADD")
         .arg(&collection_name)
         .arg(total_score)
-        .arg(field_name)
+        .arg(&field_name)
         .query::<u32>(connection)
     {
-        info!("总分插入Redis成功");
+        info!(
+            "总分插入Redis成功, collection: {}, total_score: {}, field_name: {}",
+            &collection_name, total_score, &field_name
+        );
     } else {
-        info!("ERR 总分插入Redis失败");
+        info!(
+            "ERR 总分插入Redis失败, collection: {}, total_score: {}, field_name: {}",
+            &collection_name, total_score, &field_name
+        );
     }
 }
 
@@ -222,7 +234,7 @@ pub async fn rank_list_rt(
             .arg("WITHSCORES")
             .query::<Vec<(String, String)>>(&mut redis_connection)
         {
-            info!("{:?}", result);
+            info!("查询到的排行榜数据 {:?}", result);
             let mut rank_list: Vec<model::RankPlayer> = Vec::new();
             for item in result.iter() {
                 let player_id = item.0.clone();

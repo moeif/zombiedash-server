@@ -33,7 +33,7 @@ pub async fn rocket_builder() -> Option<Rocket<Build>> {
                         routes::musicplay::rank_list_rt,
                         routes::worship::get_worship_rt,
                         routes::worship::post_worship_rt,
-                        routes::worship::get_worship_names_rt,
+                        // routes::worship::get_worship_names_rt,
                     ],
                 )
                 .mount("/", FileServer::from("static/"))

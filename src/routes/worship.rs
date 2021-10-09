@@ -4,7 +4,7 @@ use crate::data::model;
 use mongodb::bson::doc;
 use redis;
 use redis::Connection;
-use rocket::serde::json::serde_json::{self, json};
+use rocket::serde::json::serde_json::json;
 use rocket::serde::json::Json;
 use rocket::State;
 use rocket::*;
@@ -16,7 +16,7 @@ fn add_worship(connection: &mut Connection, player_id: &str) {
     let field_name = format!("{}", player_id);
     let prev_worship = if let Ok(result) = redis::cmd("HGET")
         .arg(REDIS_COLLECTION)
-        .arg(field_name.clone())
+        .arg(&field_name)
         .query::<u32>(connection)
     {
         result
@@ -28,13 +28,16 @@ fn add_worship(connection: &mut Connection, player_id: &str) {
 
     if let Ok(_) = redis::cmd("HSET")
         .arg(REDIS_COLLECTION)
-        .arg(field_name.clone())
+        .arg(&field_name)
         .arg(worship)
         .query::<u32>(connection)
     {
-        info!("膜拜新增成功！")
+        info!(
+            "膜拜新增成功！{}: {} -> {}",
+            player_id, prev_worship, worship
+        );
     } else {
-        info!("膜拜新增失败！");
+        info!("膜拜新增失败！{}", player_id);
     }
 }
 
@@ -51,80 +54,80 @@ pub fn get_worship(connection: &mut Connection, player_id: &str) -> u32 {
     return 0;
 }
 
-fn add_worship_name(connection: &mut Connection, player_id: &str, src_player_id: &str) {
-    if let Some(player_name) = super::get_player_name_from_redis(connection, src_player_id) {
-        let field_name = format!("{}", player_id);
-        let json_str = if let Ok(result) = redis::cmd("HGET")
-            .arg(REDIS_WORSHIP_NAMES_COLLECTION)
-            .arg(field_name.clone())
-            .query::<String>(connection)
-        {
-            result
-        } else {
-            String::new()
-        };
+// fn add_worship_name(connection: &mut Connection, player_id: &str, src_player_id: &str) {
+//     if let Some(player_name) = super::get_player_name_from_redis(connection, src_player_id) {
+//         let field_name = format!("{}", player_id);
+//         let json_str = if let Ok(result) = redis::cmd("HGET")
+//             .arg(REDIS_WORSHIP_NAMES_COLLECTION)
+//             .arg(field_name.clone())
+//             .query::<String>(connection)
+//         {
+//             result
+//         } else {
+//             String::new()
+//         };
 
-        let mut names: Vec<String> = if json_str.len() > 0 {
-            if let Ok(result) = serde_json::from_str::<Vec<String>>(&json_str) {
-                result
-            } else {
-                Vec::new()
-            }
-        } else {
-            Vec::new()
-        };
+//         let mut names: Vec<String> = if json_str.len() > 0 {
+//             if let Ok(result) = serde_json::from_str::<Vec<String>>(&json_str) {
+//                 result
+//             } else {
+//                 Vec::new()
+//             }
+//         } else {
+//             Vec::new()
+//         };
 
-        names.push(player_name);
+//         names.push(player_name);
 
-        if let Ok(json_str) = serde_json::to_string(&names) {
-            // 将新的JsonStr存入Redis
-            if let Ok(_) = redis::cmd("HSET")
-                .arg(REDIS_WORSHIP_NAMES_COLLECTION)
-                .arg(field_name)
-                .arg(json_str)
-                .query::<u32>(connection)
-            {
-                info!("添加新的膜拜名单成功!");
-            }
-        } else {
-            info!("添加新的膜拜姓名序列化失败！");
-        }
-    }
-}
+//         if let Ok(json_str) = serde_json::to_string(&names) {
+//             // 将新的JsonStr存入Redis
+//             if let Ok(_) = redis::cmd("HSET")
+//                 .arg(REDIS_WORSHIP_NAMES_COLLECTION)
+//                 .arg(field_name)
+//                 .arg(json_str)
+//                 .query::<u32>(connection)
+//             {
+//                 info!("添加新的膜拜名单成功!");
+//             }
+//         } else {
+//             info!("添加新的膜拜姓名序列化失败！");
+//         }
+//     }
+// }
 
 // 一旦调用，就会返回数据，然后删除数据
-fn get_worship_names(connection: &mut Connection, player_id: &str) -> Vec<String> {
-    let field_name = format!("{}", player_id);
-    let json_str = if let Ok(result) = redis::cmd("HGET")
-        .arg(REDIS_WORSHIP_NAMES_COLLECTION)
-        .arg(field_name.clone())
-        .query::<String>(connection)
-    {
-        result
-    } else {
-        String::new()
-    };
+// fn get_worship_names(connection: &mut Connection, player_id: &str) -> Vec<String> {
+//     let field_name = format!("{}", player_id);
+//     let json_str = if let Ok(result) = redis::cmd("HGET")
+//         .arg(REDIS_WORSHIP_NAMES_COLLECTION)
+//         .arg(field_name.clone())
+//         .query::<String>(connection)
+//     {
+//         result
+//     } else {
+//         String::new()
+//     };
 
-    let names: Vec<String> = if json_str.len() > 0 {
-        if let Ok(result) = serde_json::from_str::<Vec<String>>(&json_str) {
-            result
-        } else {
-            Vec::new()
-        }
-    } else {
-        Vec::new()
-    };
+//     let names: Vec<String> = if json_str.len() > 0 {
+//         if let Ok(result) = serde_json::from_str::<Vec<String>>(&json_str) {
+//             result
+//         } else {
+//             Vec::new()
+//         }
+//     } else {
+//         Vec::new()
+//     };
 
-    if let Ok(_) = redis::cmd("HDEL")
-        .arg(REDIS_WORSHIP_NAMES_COLLECTION)
-        .arg(field_name.clone())
-        .query::<u32>(connection)
-    {
-        info!("膜拜名单删除成功");
-    }
+//     if let Ok(_) = redis::cmd("HDEL")
+//         .arg(REDIS_WORSHIP_NAMES_COLLECTION)
+//         .arg(field_name.clone())
+//         .query::<u32>(connection)
+//     {
+//         info!("膜拜名单删除成功");
+//     }
 
-    return names;
-}
+//     return names;
+// }
 
 #[get("/worship/<player_id>")]
 pub async fn get_worship_rt(connector: &State<Connector>, player_id: String) -> ApiResponse {
@@ -157,11 +160,11 @@ pub async fn post_worship_rt(
     return ApiResponse::internal_err();
 }
 
-#[get("/worshipnames/<player_id>")]
-pub async fn get_worship_names_rt(connector: &State<Connector>, player_id: String) -> ApiResponse {
-    if let Ok(mut redis_connection) = connector.redis.get_connection() {
-        let worship_names_vec = get_worship_names(&mut redis_connection, &player_id);
-        return ApiResponse::ok(json!(worship_names_vec));
-    }
-    return ApiResponse::internal_err();
-}
+// #[get("/worshipnames/<player_id>")]
+// pub async fn get_worship_names_rt(connector: &State<Connector>, player_id: String) -> ApiResponse {
+//     if let Ok(mut redis_connection) = connector.redis.get_connection() {
+//         let worship_names_vec = get_worship_names(&mut redis_connection, &player_id);
+//         return ApiResponse::ok(json!(worship_names_vec));
+//     }
+//     return ApiResponse::internal_err();
+// }
